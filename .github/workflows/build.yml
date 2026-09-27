@@ -9,6 +9,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Fetch JUCE
+      run: |
+        if (!(Test-Path -Path "JUCE/CMakeLists.txt")) {
+          git clone --depth 1 https://github.com/juce-framework/JUCE.git JUCE
+        }
+      shell: powershell
+
     - name: Configure CMake
       run: cmake -B build
 
