@@ -7,12 +7,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: true
+    - uses: actions/checkout@v4
 
     - name: Get JUCE
-      run: git clone --depth 1 https://github.com/juce-framework/JUCE.git
+      run: git clone --depth 1 https://github.com/juce-framework/JUCE.git JUCE
 
     - name: Configure CMake
       run: cmake -B build -G "Visual Studio 17 2022" -A x64
@@ -25,4 +23,3 @@ jobs:
       with:
         name: MyFirstGain-Windows-VST3
         path: build/MyFirstGain_artefacts/Release/VST3/
-        if-no-files-found: ignore
