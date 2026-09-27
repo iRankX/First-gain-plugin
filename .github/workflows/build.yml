@@ -25,3 +25,4 @@ jobs:
       with:
         name: MyFirstGain-Windows-VST3
         path: build/MyFirstGain_artefacts/Release/VST3/
+        if-no-files-found: ignore
